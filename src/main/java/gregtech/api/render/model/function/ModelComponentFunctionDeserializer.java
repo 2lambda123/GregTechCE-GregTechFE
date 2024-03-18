@@ -9,7 +9,7 @@ public class ModelComponentFunctionDeserializer {
     public static ModelComponentFunction deserialize(JsonObject object) {
         String functionType = JsonHelper.getString(object, "type");
 
-        if (functionType.equals("apply_orientation")) {
+        if ("apply_orientation".equals(functionType)) {
             String facingProperty = JsonHelper.getString(object, "property");
             return new ApplyOrientationFunction(facingProperty);
         }

@@ -72,7 +72,7 @@ public class GuiUtils {
                 try {
                     URI uri = new URI(clickEvent.getValue());
                     String uriScheme = uri.getScheme().toLowerCase(Locale.ROOT);
-                    if (uriScheme.equals("http") || uriScheme.equals("https")) {
+                    if ("http".equals(uriScheme) || "https".equals(uriScheme)) {
                         Util.getOperatingSystem().open(uri);
                     }
                 } catch (URISyntaxException ignored) {
