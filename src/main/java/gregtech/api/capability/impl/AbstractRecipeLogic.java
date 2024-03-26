@@ -10,6 +10,7 @@ import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.util.GTUtility;
 import gregtech.common.ConfigHolder;
+import java.security.SecureRandom;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -48,7 +49,7 @@ public abstract class AbstractRecipeLogic extends MTETrait implements Workable {
     protected int recipeEUt;
     protected List<FluidStack> fluidOutputs;
     protected NonNullList<ItemStack> itemOutputs;
-    protected final Random random = new Random();
+    protected final Random random = new SecureRandom();
 
     protected boolean isActive;
     protected boolean workingEnabled = true;

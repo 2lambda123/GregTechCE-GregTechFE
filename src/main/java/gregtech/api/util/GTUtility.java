@@ -21,6 +21,7 @@ import gregtech.api.items.IToolItem;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.common.ConfigHolder;
+import java.security.SecureRandom;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRedstoneWire;
 import net.minecraft.block.properties.IProperty;
@@ -296,7 +297,7 @@ public class GTUtility {
             return capability.discharge(energyNeeded, Integer.MAX_VALUE, true, false, simulate) == energyNeeded;
 
         } else if (itemStack.isItemStackDamageable()) {
-            if (!simulate && itemStack.attemptDamageItem(vanillaDamage, new Random(), null)) {
+            if (!simulate && itemStack.attemptDamageItem(vanillaDamage, new SecureRandom(), null)) {
                 //if we can't accept more damage, just shrink stack and mark it as broken
                 //actually we would play broken animation here, but we don't have an entity who holds item
                 itemStack.shrink(1);
