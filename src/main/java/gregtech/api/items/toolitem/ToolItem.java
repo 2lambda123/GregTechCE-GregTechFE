@@ -18,6 +18,7 @@ import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.flags.MaterialFlags;
 import gregtech.api.unification.material.properties.SolidForm;
 import gregtech.api.unification.material.properties.ToolProperties;
+import java.security.SecureRandom;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.Enchantment;
@@ -263,7 +264,7 @@ public abstract class ToolItem extends GTItem implements CustomDamageItem, Custo
     public Pair<ItemDamageResult, ItemStack> attemptDamageItem(ItemStack itemStack, int damage, @Nullable LivingEntity entity, Simulation simulate) {
         Ref<ItemStack> stackRef = new Ref<>(itemStack.copy());
         LimitedConsumer<ItemStack> excess = LimitedConsumer.rejecting();
-        Random random = new Random();
+        Random random = new SecureRandom();
 
         if (entity instanceof PlayerEntity playerEntity) {
             excess = LimitedConsumer.fromConsumer(PlayerInvUtil.createPlayerInsertable(playerEntity));
